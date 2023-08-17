@@ -58,7 +58,6 @@ def validate_client_response(response, required_key=None):
 def get_unattached_volumes(ec2: boto3.client):
     response = ec2.describe_volumes(Filters=UNATTACHED_VOLUME_FILTER)
     validate_client_response(response=response, required_key=VOLUMES_KEY)
-    validate_client_response(response)
     return response[VOLUMES_KEY]
 
 
